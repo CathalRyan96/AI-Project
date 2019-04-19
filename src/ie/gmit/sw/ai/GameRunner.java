@@ -50,21 +50,25 @@ public class GameRunner implements KeyListener{
 	}
 
     public void keyPressed(KeyEvent e) {
+    	//Allows the player to turn right
         if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentCol < MAZE_DIMENSION - 1) {
         	if (isValidMove(currentRow, currentCol + 1)){
 				player.setDirection(Direction.RIGHT);
 				currentCol++; 
-        	}   		
+        	}   	
+        	//Allows the player to turn left
         }else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentCol > 0) {
         	if (isValidMove(currentRow, currentCol - 1)) {
 				player.setDirection(Direction.LEFT);
 				currentCol--;	
 			}
+        	//Allows the player go up
         }else if (e.getKeyCode() == KeyEvent.VK_UP && currentRow > 0) {
         	if (isValidMove(currentRow - 1, currentCol)) {
 				player.setDirection(Direction.UP);
 				currentRow--;
 			}
+        	//Allows the player to go down
         }else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentRow < MAZE_DIMENSION - 1) {
         	if (isValidMove(currentRow + 1, currentCol)){
         		player.setDirection(Direction.DOWN);
