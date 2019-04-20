@@ -3,6 +3,7 @@ package ie.gmit.sw.ai;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
 public class GameRunner implements KeyListener{
 	private static final int MAZE_DIMENSION = 100;
 	private static final int IMAGE_COUNT = 14;
@@ -76,6 +77,10 @@ public class GameRunner implements KeyListener{
         	}         	  	
         }else if (e.getKeyCode() == KeyEvent.VK_Z){
         	view.toggleZoom();
+        	
+        }else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+        	Spiders(currentRow, currentCol);
+        	
         }else{
         	return;
         }
@@ -93,6 +98,21 @@ public class GameRunner implements KeyListener{
 		}else{
 			return false; //Can't move
 		}
+	}
+	
+	private void Spiders(int row, int col) {
+		if (row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == ' '){
+			BlackSpider();
+			
+			
+		
+		}
+
+		
+	}
+	
+	private void BlackSpider() {
+		JOptionPane.showMessageDialog(null, "This is a black spider");
 	}
 	
 	private Sprite[] getSprites() throws Exception{
